@@ -10,7 +10,7 @@ class Arquivos extends CI_Controller {
         $this->load->helper(array('download','file', 'excel_helper'));
         $this->load->model(array('alunos_model'));
         verifica_login();
-       // ini_set('max_execution_time', 0);
+        ini_set('max_execution_time', 240);
    
         
     }
@@ -78,24 +78,32 @@ class Arquivos extends CI_Controller {
         endforeach;
         
         $cont_aluno = 1;
-       // $alunos = 'SEM ALUNOS';
+        foreach($titulo as $key=>$row):
+            if($row == 'unset'):
+                unset($titulo[$key]);
+            endif;
+        endforeach;
         for ($row = 2; $row <= $lastRow; $row++):
 
             if($worksheet->getCell('A'.$row)->getValue() != null):
                 foreach($titulo as $key=>$t):
                     $alunos[$cont_aluno][$t] =  $worksheet->getCell($letras[$key].$row)->getValue();
+                    $alunos[$cont_aluno]['data'] = '';
+                    $alunos[$cont_aluno]['horas'] = '';
+                    $alunos[$cont_aluno]['status'] = '';
+                    $alunos[$cont_aluno]['id_usuario'] = '';
                 endforeach;
                 $cont_aluno++;
 
             endif;
         endfor;
-        /**
+        /*
         echo '<pre>';
         //print_r($titulo);
         print_r($alunos);
         echo '</pre>';
         /**/
-        
+        /** */
         if(!$this->alunos_model->truncate()):
             set_msg('Não foi possível deletar os Jogos', 'danger');
         else:
@@ -109,8 +117,9 @@ class Arquivos extends CI_Controller {
                    redirect('alunos/listar');
                 endif;
             endforeach;    
-               /**/
+           
         endif;
+        /** */
         redirect('alunos/listar');
      
             

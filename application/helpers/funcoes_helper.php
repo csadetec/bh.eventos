@@ -89,8 +89,13 @@ function set_pontos($e1, $e2, $e3, $e4, $e5){
 }
 
 function strclear($string){
+    /*
     $search = array('á','é', 'ê', 'ú','ç','ã', 'í', 'ô');
     $replace= array('Á','É', 'Ê','U','Ç', 'Ã', 'Í', 'Ô');
+    /**/
+    $serach = array ('Á','Â', 'É', 'Í', 'Ú');
+    $replace= array('A','E', 'E','I','U');
+
     $string = str_replace($search, $replace, $string);
         $string = strtolower($string);
 

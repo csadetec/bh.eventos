@@ -42,7 +42,7 @@
             if($this->session->userdata('id_perfil') == 1):
               echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i>Usuários - Listar', array('class'=>'dropdown-item'));
               echo anchor('usuarios/cadastrar', '<i class="fas fa-fw fa-user"></i>Usuário - Cadastrar', array('class'=>'dropdown-item'));
-              /*echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));*/
+              echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
             
             endif;
           ?>
@@ -86,5 +86,5 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url("./assets/js/script.js?23052019") ?>"></script>
+<script src="<?php echo base_url("./assets/js/script.js?30052019") ?>"></script>
 </html>

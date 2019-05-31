@@ -7,11 +7,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		$titulo = strtolower($titulo);
 		
-		if($titulo == 'nome'):			
-			return 'nome_aluno';
-		endif;
-
-		return $titulo;
+		if($titulo == 'nome')return 'nome_aluno';
+		if($titulo == 'ra')return 'ra';
+		if($titulo == 'serie')return 'serie';
+		if($titulo == 'nome_pai')return 'nome_pai';
+		if($titulo == 'nome_mae')return 'nome_mae';
+		return 'unset';
 
 	}
 
