@@ -29,9 +29,12 @@
  	//	$this->db->where('turma !=', "");
   		$this->db->select('a.id_aluno, a.ra, a.nome_aluno, a.nome_pai, a.nome_mae, a.status, a.serie, a.data, a.horas');
 
-  		$this->db->from($this->alunos.' as a');
+		$this->db->from($this->alunos.' as a');
+		$this->db->where_in('serie', array('PRIMEIRO PERIODO', 'SEGUNDO PERIODO', 'PRIMEIRO ANO', 'SEGUNDO ANO', 'TERCEIRO ANO', 'QUARTO ANO', 'QUINTO ANO'));
+  
   		$this->db->order_by('a.nome_aluno', 'asc');
- 		$this->db->order_by('a.serie', 'asc');
+		$this->db->order_by('a.serie', 'asc');
+		 
  		
  		return $this->db->get()->result();
  	}
