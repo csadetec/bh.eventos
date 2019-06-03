@@ -31,9 +31,9 @@
 
 		$this->db->from($this->alunos.' as a');
 		$this->db->where_in('serie', array('PRIMEIRO PERIODO', 'SEGUNDO PERIODO', 'PRIMEIRO ANO', 'SEGUNDO ANO', 'TERCEIRO ANO', 'QUARTO ANO', 'QUINTO ANO'));
-  
-  		$this->db->order_by('a.nome_aluno', 'asc');
 		$this->db->order_by('a.serie', 'asc');
+  		$this->db->order_by('a.nome_aluno', 'asc');
+		
 		 
  		
  		return $this->db->get()->result();

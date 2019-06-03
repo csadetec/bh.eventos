@@ -1,4 +1,4 @@
-<input class="form-control col-12 mt-3 mb-3" type="search" placeholder="Pesquisar por nome do pai, mãe ou aluno" aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
+<input class="form-control col-12 mt-3 mb-3" type="search" placeholder="Pesquisar por Email" aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
 <ul id="myList" class="list-group">
   <?php 
   if($esperas):
