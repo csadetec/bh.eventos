@@ -12,7 +12,7 @@ class Usuarios_model extends CI_Model {
 	public function select($dados=""){
 
 
-		$this->db->select('u.id_usuario, u.nome, u.usuario, u.email,  u.id_perfil, u.id_turma');
+		$this->db->select('u.id_usuario, u.nome, u.usuario, u.email,  u.id_perfil');
 		$this->db->from($this->usuarios.' as u');
 	
 		$this->db->where($dados);
