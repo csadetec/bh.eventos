@@ -12,7 +12,6 @@
 		$this->db->select('count(*) as alunos_total, '
 		.'(select count(*) from eventos_'.$this->alunos.' where status = 1) as alunos_pegaram, '
 		.'(select count(*) from eventos_'.$this->alunos.' where status = 0) as alunos_no_pegaram, '
-		.'(select count(*) from eventos_'.$this->alunos.' where status = 0) as alunos_no_pegaram, '
 		.'(select count(*) from eventos_'.$this->esperas.') as  qtd_pessoas_espera, '
 		.'(select sum(qtd_convites) from eventos_'.$this->esperas.') as  qtd_convites, '
 
