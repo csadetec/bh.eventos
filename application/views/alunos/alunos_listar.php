@@ -14,8 +14,8 @@
             .'<b>'.'PAI: '.'</b>'.$a->pai.'<br>' 
             .'<b>'.'EMAIL PAI: '.'</b>'.strtolower($a->emailpai).'<br>'
             //.'<br>'
-            .'<b>'.'ALUNO: '.'</b>'.$a->aluno.' - '.'<i>'.$a->codturma.'</i>'.'<br>'
-            .'<sub>'.set_data($a->data).'</sub>';
+            .'<b>'.'ALUNO: '.'</b>'.$a->aluno.' - '.'<i>'.$a->codturma.'</i>'.'<br>';
+          //  .'<sub>'.set_data($a->data).'</sub>';
             //.'<sub>'.convite_turno(@$a->serie).'<br>'.set_data(@$a->data).'</sub>';
           ?>
         </div>
