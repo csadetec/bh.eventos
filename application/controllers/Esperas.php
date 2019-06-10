@@ -32,6 +32,8 @@ class Esperas extends CI_Controller {
     else:
 
       $post = $this->input->post();
+      unset($post['emailmae']);
+      unset($post['emailpai']);
       /**
       echo '<pre>';
       echo '<br>';
@@ -58,11 +60,12 @@ class Esperas extends CI_Controller {
 
   }
 
-  public function editar($id_espera = null, $id_aluno = null){
-    $aluno = $this->alunos_model->select_id($id_aluno);
+  public function editar($id_espera = null, $ra = null){
+    $aluno = $this->alunos_model->select_ra($ra);
     $espera = $this->esperas_model->select_id($id_espera);
+    
     if(!$aluno || !$espera)redirect('alunos/listar');
-
+    
     $this->form_validation->set_rules('qtd_convites', 'CONVITES (Quantidade extra)', 'trim|required|integer');
     $this->form_validation->set_rules('email', 'EMAIL', 'trim|required|valid_email');
     
@@ -73,6 +76,8 @@ class Esperas extends CI_Controller {
     else:
 
       $post = $this->input->post();
+      unset($post['emailmae']);
+      unset($post['emailpai']);
       /*
       echo '<pre>';
       echo '<br>';
@@ -85,26 +90,25 @@ class Esperas extends CI_Controller {
       else:
         set_msg('Falha ao registrar o emprestimo', 'danger');
        endif;
-        /**/
+      
     endif;
 
 
     $data['titulo'] = 'CADASTRO PARA A LISTA DE ESPERA';
     $data['page'] = 'esperas/esperas_form';
-    $data['action'] = 'esperas/editar/'.$id_espera.'/'.$id_aluno;
+    $data['action'] = 'esperas/editar/'.$id_espera.'/'.$ra;
     $data['aluno'] = $aluno;
     $data['espera'] = $espera;
     $data['btn_value'] = 'ATUALIZAR';
 
     $this->load->view('load', $data, FALSE);
+    /** */
 
   }
 
 
   public function listar(){
-       header("Refresh:60");
- 
-    
+      
     $esperas = $this->esperas_model->select();
     /*
     echo '<pre>';

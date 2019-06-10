@@ -8,6 +8,9 @@ function convite_turno($s){
     return 'CONVITE MANHÃ';
 
 }
+function rename_turma($t){
+
+}
 function txt_status($s){
     if($s == 1){
         return 'CONVITE ENVIADO';

@@ -42,7 +42,7 @@
             if($this->session->userdata('id_perfil') == 1):
               echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i>Usuários - Listar', array('class'=>'dropdown-item'));
               echo anchor('usuarios/cadastrar', '<i class="fas fa-fw fa-user"></i>Usuário - Cadastrar', array('class'=>'dropdown-item'));
-             // echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
+              //echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
             
             endif;
           ?>

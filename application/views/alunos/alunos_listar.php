@@ -8,22 +8,23 @@
       <div class="row">
         <div class="col-md-8">
           <?php
-            echo '<b>'.'MÃE: '.'</b>'.$a->nome_mae.'<br>'
-            .'<b>'.'PAI: '.'</b>'.$a->nome_pai.'<br>' 
-            .'<b>'.'ALUNO: '.'</b>'.$a->nome_aluno.' - '.'<i>'.$a->serie.'</i>'.'<br>'
-            .'<sub>'.convite_turno($a->serie).'<br>'.set_data($a->data).'</sub>';
-            
+            echo '<b>'.'MÃE: '.'</b>'.$a->mae.'<br>'
+            .'<b>'.'EMAIL MÃE: '.'</b>'.strtolower($a->emailmae).'<br>'
+            //.'<br>'
+            .'<b>'.'PAI: '.'</b>'.$a->pai.'<br>' 
+            .'<b>'.'EMAIL PAI: '.'</b>'.strtolower($a->emailpai).'<br>'
+            //.'<br>'
+            .'<b>'.'ALUNO: '.'</b>'.$a->aluno.' - '.'<i>'.$a->codturma.'</i>'.'<br>'
+            .'<sub>'.set_data($a->data).'</sub>';
+            //.'<sub>'.convite_turno(@$a->serie).'<br>'.set_data(@$a->data).'</sub>';
           ?>
-
         </div>
         <div class="col-md-3 mt-3">
           <button style="float:right" name="<?php echo $a->id_aluno?>" id="status" class="btn <?php echo class_status($a->status) ?>"><?php echo txt_status($a->status) ?></button>
         </div>
         <div class="col-md-1">
-
           <?php echo anchor('esperas/cadastrar/'.$a->id_aluno, '<i class="fas fa-plus"></i>', array('class'=>'btn btn-primary mt-3', 'style'=>'border-radius: 50%; float:right;', 'title'=>'Lista de Espera')); /**/ ?>
-          <br>
-          
+          <br>         
         </div>
       </div>
      </li>
@@ -43,25 +44,7 @@
 
     realtime();
     //setInterval(realtime_loop, 3000)
-     function realtime_loop(){
      
-      var url = 'http://'+hostname+'/eventos/alunos/listar_ultimo_status';
-     // var url = 'http://'+hostname+'/eventos/alunos/editar_ajax/'+;
-    
-      $.getJSON(url, function(result){
-        console.log('reload');
-        $.each(result, function (i, field){
-          //$("#status[name='7']").text('teste');
-          $("#status[name='"+field.id_aluno+"']").removeClass('btn-outline-success btn-outline-danger'); 
-          $("#status[name='"+field.id_aluno+"']").addClass(class_status(field.status)); 
-          $("#status[name='"+field.id_aluno+"']").text(txt_status(field.status)); 
-/**/
-        });
-   
-      });
-  
-     
-    }
     function realtime(){
       Pusher.logToConsole = true;
 
@@ -129,7 +112,7 @@
     
       $.ajax({
         type:"POST",
-        url:'http://'+hostname+'/eventos/alunos/editar_ajax/'+id_aluno,
+        url:'http://'+hostname+'/bh.eventos/alunos/editar_ajax/'+id_aluno,
         data:obj,
         success:function(data){
           if(data == 'success'){

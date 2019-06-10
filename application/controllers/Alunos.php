@@ -14,28 +14,6 @@ class Alunos extends CI_Controller {
   }
 
   public function index(){
-    require './vendor/autoload.php';
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-      $options = array(
-        'cluster' => 'us2',
-        'useTLS' => true
-      );
-      $pusher = new Pusher\Pusher(
-        'f813cff7b76bbbb4a529',
-        '6d64e715c72e3120935a',
-        '789970',
-        $options
-      );
-
-    $data['message'] = $_POST['msg'];
-    $pusher->trigger('my-channel', 'my-event', $data);
-
-  }
-
-    $this->load->view('teste');
-
 
   }
 

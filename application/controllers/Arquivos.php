@@ -73,56 +73,41 @@ class Arquivos extends CI_Controller {
         foreach($letras as $key=>$l):           
             if($worksheet->getCell($l.'1')->getValue()):
                 $titulo[$key] = $worksheet->getCell($l.'1')->getValue();
-                 $titulo[$key] = renomear_titulo($titulo[$key]);
+                $titulo[$key] = strtolower($titulo[$key]);
             endif;
         endforeach;
         
         $cont_aluno = 1;
-        foreach($titulo as $key=>$row):
-            if($row == 'unset'):
-                unset($titulo[$key]);
-            endif;
-        endforeach;
+
         for ($row = 2; $row <= $lastRow; $row++):
 
             if($worksheet->getCell('A'.$row)->getValue() != null):
                 foreach($titulo as $key=>$t):
                     $alunos[$cont_aluno][$t] =  $worksheet->getCell($letras[$key].$row)->getValue();
-                    $alunos[$cont_aluno]['data'] = '';
-                    $alunos[$cont_aluno]['horas'] = '';
-                    $alunos[$cont_aluno]['status'] = '';
-                    $alunos[$cont_aluno]['id_usuario'] = '';
+                   
                 endforeach;
                 $cont_aluno++;
 
             endif;
         endfor;
-        /*
+        /*/
         echo '<pre>';
-        //print_r($titulo);
+        print_r($titulo);
         print_r($alunos);
         echo '</pre>';
         /**/
         /** */
-        if(!$this->alunos_model->truncate()):
-            set_msg('Não foi possível deletar os Jogos', 'danger');
-        else:
-            foreach($alunos as $key=>$a):
-            
-                if($this->alunos_model->insert($a) == false):
-                    echo "Falha ao cadastrar";
-                    break;
-                elseif(sizeof($alunos) == $key):
-                   set_msg("Banco de alunos Atualizado com Sucesso","success");
-                   redirect('alunos/listar');
-                endif;
-            endforeach;    
-           
-        endif;
-        /** */
-        redirect('alunos/listar');
-     
-            
+
+        foreach($alunos as $key=>$a):
+        
+            if($this->alunos_model->insert($a) == false):
+                echo "Falha ao cadastrar";
+                break;
+            elseif(sizeof($alunos) == $key):
+                set_msg("Banco de alunos Atualizado com Sucesso","success");
+                redirect('alunos/listar');
+            endif;
+        endforeach;    
 
     }
 

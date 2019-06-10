@@ -30,14 +30,13 @@
 
   	public function select(){
 
-		$this->db->select('e.id_espera, e.id_aluno, e.email, e.qtd_convites, e.obs, '
-		.'a.nome_aluno'
+		$this->db->select('e.id_espera, e.ra, e.email, e.qtd_convites, e.obs, '
+		.'a.aluno'
 		);
 
 		$this->db->from($this->esperas.' as e');
-		$this->db->join($this->alunos.' as a', 'e.id_aluno = a.id_aluno');
-		$this->db->order_by('a.nome_aluno', 'asc');
-		$this->db->order_by('a.serie', 'asc');
+		$this->db->join($this->alunos.' as a', 'e.ra = a.ra');
+		$this->db->order_by('a.aluno', 'asc');
  		
  		return $this->db->get()->result();
  	}

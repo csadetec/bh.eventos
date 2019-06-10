@@ -21,7 +21,7 @@
             if($e->obs) echo '<i>'.'OBSERVAÇÃO'.'</i>'.'<br>'.$e->obs;
           ?>
           <br>
-          <?php echo anchor('esperas/editar/'.$e->id_espera.'/'.$e->id_aluno, '<i class="fas fa-edit"></i>', array('class'=>'btn btn-primary', 'style'=>'float:right; border-radius:49%')); ?>        
+          <?php echo anchor('esperas/editar/'.$e->id_espera.'/'.$e->ra, '<i class="fas fa-edit"></i>', array('class'=>'btn btn-primary', 'style'=>'float:right; border-radius:49%')); ?>        
         </div>
       </div>
      </li>
