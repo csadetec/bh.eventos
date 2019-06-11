@@ -33,16 +33,15 @@
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          <i class="fas fa-fw fa-user"></i><?php echo $this->session->userdata('nome')?>
+          <i class="fas fa-fw fa-user"></i> <?php echo $this->session->userdata('nome')?>
         </a>
         <div class="dropdown-menu">         
           <p class="dropdown-item"><?php echo $this->session->userdata('nome_perfil') ?></p>
           <div class="dropdown-divider"></div> 
           <?php
             if($this->session->userdata('id_perfil') == 1):
-              echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i>Usuários - Listar', array('class'=>'dropdown-item'));
-              echo anchor('usuarios/cadastrar', '<i class="fas fa-fw fa-user"></i>Usuário - Cadastrar', array('class'=>'dropdown-item'));
-              //echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
+              echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i> Usuários', array('class'=>'dropdown-item'));
+              echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
             
             endif;
           ?>

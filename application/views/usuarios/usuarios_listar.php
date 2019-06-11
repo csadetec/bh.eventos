@@ -1,3 +1,4 @@
+<?php echo anchor('usuarios/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Usuário', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
 <input class="form-control col-12 mt-3 mb-3" type="search" placeholder="Pesquisar por nome do pai, mãe ou aluno" aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
 <ul id="myList" class="list-group">
   <?php 

@@ -53,7 +53,7 @@
         </div>
         
         <button type="submit" class="btn btn-primary btn-block" > <?php echo $btn_value ?></button>
-        <a href="<?php echo base_url("perfis/listpr") ?> " class="btn btn-secondary btn-block" >VOLTAR</a>  
+        <a href="<?php echo base_url("usuarios/listar") ?> " class="btn btn-secondary btn-block" >VOLTAR</a>  
       </form>
     </div>
   </div>
